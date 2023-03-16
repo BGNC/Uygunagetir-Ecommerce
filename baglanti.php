@@ -18,4 +18,3 @@ function seo($deger)
     return str_replace($eski, $yeni, $deger);
 }
 
-?>

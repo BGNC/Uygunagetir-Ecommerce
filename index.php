@@ -1,6 +1,6 @@
 <?php include("header.php"); ?>
 
- <!-- Begin Slideshow -->
+
     <div class="slideshow-container style-4">
         <div class="slideshow-inner">
             <ul>
@@ -57,9 +57,9 @@
                            
                         </div>
                     </div>
-                    <a href="urundetay-<?php echo seo($vitrinkayitlar[1]).'-'.$vitrinkayitlar[0];?>.html"><h5 class="product-name"><?php echo $vitrinkayitlar[1]; ?></h5></a>
+                    <a href="urundetay-<?php echo @seo($vitrinkayitlar[1]).'-'.$vitrinkayitlar[0];?>.html"><h5 class="product-name"><?php echo $vitrinkayitlar[1]; ?></h5></a>
                     <div class="product-price"><?php echo number_format($vfiyat,2,",","."); ?> <i class="fa fa-try"></i></div>
-                    <a href="urundetay-<?php echo seo($vitrinkayitlar[1]).'-'.$vitrinkayitlar[0]; ?>.html" class="product-choose button-regular hover-color-semiblack hover-bg-white"><i class="icon3-bag"></i> Sepete Ekle</a>
+                    <a href="urundetay-<?php echo @seo($vitrinkayitlar[1]).'-'.$vitrinkayitlar[0]; ?>.html" class="product-choose button-regular hover-color-semiblack hover-bg-white"><i class="icon3-bag"></i> Sepete Ekle</a>
             </li>
            
             <?php } ?>  
@@ -96,9 +96,9 @@
                         </div>
                     </div>
                     <!--  THERE İS A BİG PROBLEM -->
-                    <a href="urundetay-<?php echo seo($indirimkayitlar[1]).'-'.$indirimkayitlar[0];?>.html"><h5 class="product-name"><?php echo $indirimkayitlar[1]; ?></h5></a>
+                    <a href="urundetay-<?php echo @seo($indirimkayitlar[1]).'-'.$indirimkayitlar[0];?>.html"><h5 class="product-name"><?php echo $indirimkayitlar[1]; ?></h5></a>
                     <div class="product-price"><?php echo number_format($ifiyat,2,",","."); ?> <i class="fa fa-try"></i></div>
-                    <a href="urundetay-<?php echo seo($indirimkayitlar[1]).'-'.$indirimkayitlar[0]; ?>.html" class="product-choose button-regular hover-color-semiblack hover-bg-white"><i class="icon3-bag"></i>Sepete Ekle</a>
+                    <a href="urundetay-<?php echo @seo($indirimkayitlar[1]).'-'.$indirimkayitlar[0]; ?>.html" class="product-choose button-regular hover-color-semiblack hover-bg-white"><i class="icon3-bag"></i>Sepete Ekle</a>
                 </li>
                 <!--- ABOVE YOU SHOULD CORRECT YOUR MİSTAKES. -->
             
