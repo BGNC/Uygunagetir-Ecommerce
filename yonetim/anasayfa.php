@@ -4,6 +4,7 @@ require_once("../baglanti.php");
 if(isset($_SESSION["yonetici"])){
 
 
+
 $siparis=mysqli_fetch_array(mysqli_query($baglanti,"SELECT COUNT(satis_id) FROM satis where kargo_durum!=1 AND satici_id=1 "));
 
 $urun=mysqli_fetch_array(mysqli_query($baglanti,"SELECT COUNT(urun_id) FROM urun where satici_id=1 "));
