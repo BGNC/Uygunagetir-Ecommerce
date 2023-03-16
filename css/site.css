@@ -1,0 +1,126 @@
+body{ margin:0px; padding:0px; font-family: "Raleway", sans-serif; font-size:12px; height:100%;}
+
+.header{ width:100%; height:60px; margin:0px; box-sizing:border-box; padding-top:13px; background-color:white;}
+
+.ortala{ width:1000px; margin:0 auto; padding:0px;}
+
+.menuort{width:800px; margin:0 auto; padding:0px; min-height:}
+
+.logo
+{
+ width:300px;
+ font-size:32px;
+ text-align:left;
+ font-weight:bold;
+ line-height:32px;
+ float:left;
+
+}
+
+.ara{float:left; border:1px solid #ddd; width:400px; padding:0px; height:30px; }
+.aratext{width:347px; margin:0px; padding:0px; height:30px; text-indent:10px; border:none; outline:none; float:left;}
+.arabuton{ border:none; width:50px; height:30px; outline:none; float:right;}
+
+.topnav a{text-decoration:none; float:right; padding:0px 5px; position:relative;}
+
+.uye{ font-size:14px; line-height:30px; padding:0 20px; cursor:pointer; text-decoration:none; color:#000; font-weight:200;}
+.uye:visited{ color:#000;}
+.satis{padding:8px 12px; background-color:#008cba; color:white; border:none;}
+.giris{padding:8px 12px; background-color:#f44336; color:white; border:none;}
+
+.navbar{ widows:100%; background-color:#4caf50;}
+
+.ustmenu{list-style:none; margin:0px; padding:0px; overflow:hidden;}
+.ustmenu li{float:left;	}
+.ustmenu li a{
+display:block;
+padding:14px 16px;
+text-decoration:none;
+color:white;
+font-size:14px;	
+
+}
+li a:hover{ background-color:#555; color:#fff;}
+.ustmenu .dropdown{ 	
+ display:none; 
+ position:absolute;
+ min-width:160px;
+ background-color:#f9f9f9;
+ z-index:3;
+ box-shadow:4px 4px 8px rgba(0,0,0,0.2);
+ 
+}
+.ustmenu .dropdown a{
+	color:black;
+	padding:12px 16px;
+	text-decoration:none;
+	text-align:left;
+	
+}
+.ustmenu li:hover .dropdown{ display:block; }
+.dropdown a:hover{background-color:#555; color:#fff;}
+
+.urun{float:left; border:1px solid #ddd; width:198px; height:300px; position:relative; margin-bottom:15px;}
+.urun img{width:198px; height:200px; border:none;}
+.urun span{ display:block;font-size:14px; padding:5px;}
+.incele{ display:none; width:200px; height:40px; background-color:#4caf50;position:absolute; bottom:0px; text-align:center; font-size:16px; line-height:40px; cursor:pointer;color:white;}
+.urun:hover{ border-color:#4caf50;}
+.urun:hover .incele{display:block; }
+
+#urunicerik{ margin-left:20px; margin-top:20px;}
+#urunicerik td{height:25px; font-size:14px; font-family:sans-serif;}
+
+.urunozellik{width:800px; height:300px; margin:15px auto; padding:0; border:1px solid #ddd; position:relative;}
+.bar{ width:800px; padding:15px 0px; top:0; position:absolute; background-color:#ddd; font-size:14px; text-indent:10px; }
+.detay{ width:800px; padding:25px 10px; top:30px; position:absolute; font-size:14px; box-sizing:border-box;}
+
+.vitrin{width:800px; margin:25px auto; min-height:300px; padding:0px; overflow:hidden; }
+
+.slider{width:800px; height:300px; margin:25px auto; padding:0; position:relative; overflow:hidden; }
+.slider ul{list-style:none; margin:0px; padding:0px;}
+.slider li{ margin:0px; padding:0px; height:300px; float:left;}
+.slider li a:hover{ text-decoration:none; }
+.geri{width:50px; height:50px;  float:left; z-index:1; position:absolute; left:10px;top:125px; display:none; }
+.ileri{width:50px; height:50px; z-index:1; position:absolute; right:10px; top:125px; display:none;}
+.slider:hover .geri{display:block;}
+.slider:hover .ileri{display:block;}
+
+.ftext{ height:30px; border:1px solid #ccc; margin-bottom:5px; text-indent:5px;}
+.fbuton{ padding:8px 16px; border:0; background-color:#4caf50; color:#fff;}
+
+.footer{ width:100%;  height:100px; line-height:100px; font-size:14px; background-color:#555; clear:both; color:#fff; }
+
+
+
+
+.uyetext{ width:250px; height:25px; border:1px solid #ddd; padding:2px;}
+.uyeadres{width:250px; height:200px; border:1px solid #ddd; padding:2px; resize:none; }
+.uyebuton{ border:0px; padding:10px 16px; background-color:#4caf50; color:white;}
+.metin{ font-size:14px;}
+
+.indirim{background-image:url(../resimler/i.png); width:80px; height:80px; position:absolute; z-index:1; top:0px; color:white; left:0px; line-height:50px; text-indent:10px;}
+
+#sepet{ border-collapse:collapse;}
+#sepet td{ font-family:Arial, Helvetica, sans-serif; font-size:14px; height:30px; border-bottom:1px solid #ddd; text-indent:5px;}
+#sepet tbody tr:hover{background-color:#eee; cursor:pointer;}
+#sepet tr{ height:40px;}
+#sayi{ color:#000; font-weight:bold; font-size:14px; position:absolute; top:-10px; right:5px;}
+#sepetbos{ width:800px; height:100px; border-left:10px solid #4caf50; background-color:#eee; font-size:16px; margin:25px auto; line-height:100px; text-align:center;}
+
+.odeme{width:200px; border:1px solid #ddd; height:25px; padding:4px; font-size:14px;}
+.odemesecim{ width:98px; height:25px; padding:4px; border:1px solid #ddd;}
+.odemetablo{ margin-top:50px;}
+.odemetablo td{ font-size:14px; height:30px;}
+.odemebuton{ border:0px; padding:12px 16px; background-color:#4caf50; color:#fff;}
+
+.satis-select{ width:250px; padding:2px; height:25px;}
+.satis-text{ width:242px; height:20px; padding:2px;}
+.satis-textarea{ width:243px; height:150px; padding:2px; resize:none;}
+.satis-buton{ padding:12px 24px; background-color:#4caf50; color:#fff; border:0;}
+
+.urunselect{ width:256px; height:25px; border:1px solid #ddd; padding:4px; font-size:12px; padding:2px;}
+.uruntext{ width:250px; height:25px; border:1px solid #ddd; padding:2px; text-indent:5px;}
+.uruntextarea{width:250px; height:150px; border:1px solid #ddd; padding:2px; resize:none;}
+.urunbuton{ padding:8px 20px; background-color:#4caf50; border:0px; color:white;}
+
+.metin{ font-size:13px;}

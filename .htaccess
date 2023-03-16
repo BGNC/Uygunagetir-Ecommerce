@@ -1,0 +1,8 @@
+RewriteEngine on
+
+RewriteRule ^anasayfa(\.html)$ index.php
+RewriteRule ^sepet(\.html)$ sepet.php 
+RewriteRule ^giris(\.html)$ giris.php
+RewriteRule ^odeme(\.html)$ odeme.php
+RewriteRule ^kategori-([a-zA-Z0-9\-_]+)-([0-9\-_]+)?(\.html)$ kategori.php?id=$2 
+RewriteRule ^urundetay-([a-zA-Z0-9\-_]+)-([0-9]+)?(\.html)$ urundetay.php?id=$2

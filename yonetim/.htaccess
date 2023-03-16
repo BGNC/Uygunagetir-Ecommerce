@@ -1,0 +1,28 @@
+RewriteEngine on
+
+RewriteRule ^giris(\.html)$ index.php
+RewriteRule ^anasayfa(\.html)$ anasayfa.php
+RewriteRule ^siparisler(\.html)$ siparisler.php
+RewriteRule ^satislar(\.html)$ satislar.php
+RewriteRule ^kategori-ekle(\.html)$ kategori.php
+RewriteRule ^altkategori-ekle(\.html)$ altkategori.php
+RewriteRule ^urun-ekle(\.html)$ urunekle.php
+RewriteRule ^urun-listele(\.html)$ urunlistele.php
+RewriteRule ^vitrin-duzenle(\.html)$ vitrin_duzenle.php
+RewriteRule ^marka(\.html)$ marka.php
+RewriteRule ^indirim-diger(\.html)$ diger.php
+RewriteRule ^indirim-tum-urunler(\.html)$ tumurunler.php
+RewriteRule ^indirim-kategori(\.html)$ tumkategoriler.php
+RewriteRule ^slider-duzenle(\.html)$ slider.php
+RewriteRule ^site-ayar(\.html)$ ayar.php
+
+
+RewriteRule ^marka-([0-9\-_]+)?(\.html)$ markaguncelle.php?id=$1
+RewriteRule ^kategori-([0-9\-_]+)?(\.html)$ kategoriguncelle.php?id=$1
+RewriteRule ^altkategori-([0-9\-_]+)?(\.html)$ altkategoriguncelle.php?id=$1
+RewriteRule ^urun-([0-9\-_]+)?(\.html)$ urunguncelle.php?id=$1
+RewriteRule ^kargo-([0-9\-_]+)?(\.html)$ kargo.php?id=$1
+
+
+
+

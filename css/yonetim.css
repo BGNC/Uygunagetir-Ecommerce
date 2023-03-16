@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+a{ text-decoration: none; color: black; }
+body{ margin:0px; padding:0px; font-family: 'Open Sans', sans-serif; font-size:15px; background-color:#f1f1f1;}
+.menu{
+float:left;
+width:20%;
+height:100%;
+background-color:#FFF;
+box-shadow:4px 0 8px rgba(0,0,0,0.2);
+position:fixed;
+padding:0px;
+
+}
+.icerik{
+float:right;
+width:80%;
+height:100%;
+padding:0;
+margin:0;	
+}
+.logo
+{
+ width:250px;
+ margin:0 auto;
+ padding:25px 0px;
+ font-size:36px;
+ text-align:center;
+ font-weight:bold;
+}
+
+.menu a{
+display:block;
+padding:12px;
+text-decoration:none;
+font-family: "Raleway", sans-serif;
+font-size:14px;
+color:black;
+text-indent:5px;
+}
+
+.menu a:hover
+{
+	background-color:#4caf50;
+	color:#fff;
+}
+
+	
+
+.ayartext{ padding:8px; border:1px solid #ccc; width:320px; border-radius:3px;}
+.ayarbuton{ padding:8px 16px; background-color:#555; color:#fff; border:none;}
+.ayarbuton:hover{ box-shadow:2px 2px 8px rgba(0,0,0,0.5);}
+
+
+#tablo { border-collapse:collapse;}
+#tablo td{border:1px solid #ccc;font-family:verdana;}
+#tablo th{border:1px solid #4caf50;font-family:verdana;}
+#tablo th{ background-color:#4caf50; color:white; font-size:14px; height:35px; text-align:center; }
+#tablo td{ height:30px;text-align:center; font-size:13px;}
+#tablo tr:hover{ background-color:#eee; cursor:pointer;}
+
+.urunselect{ width:256px; height:25px; border:1px solid #ddd; padding:4px; font-size:12px; padding:2px;}
+.uruntext{ width:250px; height:25px; border:1px solid #ddd; padding:2px; text-indent:5px;}
+.uruntextarea{width:250px; height:150px; border:1px solid #ddd; padding:2px; resize:none;}
+.urunbuton{ padding:8px 20px; background-color:#555; border:0px; color:white;}
+.urunbuton:hover{ box-shadow:2px 2px 8px rgba(0,0,0,0.5);}
+.metin{ font-size:14px;}
+
+#indirim tr{ height:30px; }
+
+#durum{ border:1px solid #ddd; width:90px; font-size:12px;}
+
+.item{ background-color:#4caf50; height:40px;}
+.item input[type="button"]{ border:0; height:40px; padding:0 15px;background-color:#4caf50; color:#fff; outline:none; cursor:pointer;}
+.item input[type="button"]:hover{ background-color:#555; color:#fff;}
+.ayar{ padding:40px 0px; }
+.slider{ padding:40px 0px;}
