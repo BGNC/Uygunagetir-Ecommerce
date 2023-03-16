@@ -1,3 +1,5 @@
+
+
 <?php include("header.php");
 include("baglanti.php");
 ?>
@@ -152,6 +154,7 @@ include("baglanti.php");
                             <a id="example1" href="urunresimleri/<?php echo $urunler["urun_resmi"]; ?>" class="product-zoom icon3-search"></a>
                         </div>
                     </div>
+
                     <!-- BURADA KALDIN -->
                     <a href="urundetay-<?php echo seo($urunler["urun_adi"]).'-'.$urunler["urun_id"];?>.html"><h5 class="product-name"><?php echo $urunler["urun_adi"]; ?></h5></a>
                     <div class="product-price"><?php echo number_format($urunler["fiyat"],2,",","."); ?> <i class="fa fa-try"></i></div>

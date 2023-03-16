@@ -1,7 +1,7 @@
 <?php
 ob_start();
 $baglanti = @mysqli_connect("localhost", "root", "", "uygunagetir") or die("Mysql Bağlantısı Kurulamadı");
-// $db			=	@mysqli_select_db("uygunagetir",$baglanti) or die("Veritabanı Bağlantısı Kurulamadı");
+
 
 @mysqli_query("SET NAMES 'utf8'");
 
