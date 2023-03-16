@@ -6,8 +6,8 @@
             <ul>
 
             	<?php
-            	$sorgu=mysql_query("SELECT * FROM slide ORDER BY id ASC");
-            	while ($rows=mysql_fetch_array($sorgu)) {
+            	$sorgu=mysqli_query("SELECT * FROM slide ORDER BY id ASC",$baglanti);
+            	while ($rows=mysqli_fetch_array($sorgu)) {
             	
             	?>	
                  <li data-transition="fade" data-slotamount="8" data-masterspeed="500" >
@@ -37,14 +37,14 @@
             <ul class="products clearfix">
 
             <?php
-            $vitrinsql  =   @mysql_query("SELECT urun.urun_id,urun.urun_adi,urun.urun_resmi,deger.fiyat FROM urun,deger WHERE urun.vitrin=1 AND urun.urun_id=deger.urun_id ORDER BY urun.sira ASC");
-            while($vitrinkayitlar=@mysql_fetch_array($vitrinsql))
+            $vitrinsql  =   mysqli_query("SELECT urun.urun_id,urun.urun_adi,urun.urun_resmi,deger.fiyat FROM urun,deger WHERE urun.vitrin=1 AND urun.urun_id=deger.urun_id ORDER BY urun.sira ASC",$baglanti);
+            while($vitrinkayitlar=@mysqli_fetch_array($vitrinsql))
             {
                 $btarih=date("Y-m-d");
                 $vfiyat=$vitrinkayitlar[3];
                 $degersql="SELECT * FROM deger WHERE urun_id=$vitrinkayitlar[0]";
-                $degersorgu=@mysql_query($degersql,$baglanti);
-                $degeroku=@mysql_fetch_array($degersorgu);
+                $degersorgu=@mysqli_query($degersql,$baglanti);
+                $degeroku=@mysqli_fetch_array($degersorgu);
             
             if($degeroku[6]<=$btarih && $degeroku[7]>=$btarih) $vfiyat-=$vfiyat*$degeroku[5]/100;
 
@@ -77,11 +77,11 @@
 
             <?php
             @$tarih=date("Y-m-d");
-            $indirimsql =   @mysql_query("SELECT urun.urun_id,urun.urun_adi,urun.urun_resmi,deger.indirim_orani FROM urun,deger WHERE deger.indirim_orani!=0 AND deger.bas_tarih<='$tarih' AND bit_tarih>='$tarih' AND deger.urun_id=urun.urun_id ORDER BY deger.indirim_orani DESC",$baglanti);
-            while($indirimkayitlar=@mysql_fetch_array($indirimsql))
+            $indirimsql =   @mysqli_query("SELECT urun.urun_id,urun.urun_adi,urun.urun_resmi,deger.indirim_orani FROM urun,deger WHERE deger.indirim_orani!=0 AND deger.bas_tarih<='$tarih' AND bit_tarih>='$tarih' AND deger.urun_id=urun.urun_id ORDER BY deger.indirim_orani DESC",$baglanti);
+            while($indirimkayitlar=@mysqli_fetch_array($indirimsql))
             {
-                $fiyatsql=@mysql_query("SELECT * from deger WHERE urun_id=$indirimkayitlar[0]",$baglanti);
-                $fiyatdeger=@mysql_fetch_array($fiyatsql);
+                $fiyatsql=@mysqli_query("SELECT * from deger WHERE urun_id=$indirimkayitlar[0]",$baglanti);
+                $fiyatdeger=@mysqli_fetch_array($fiyatsql);
                 $indirimoran=$fiyatdeger[5];
                 $ifiyat=$fiyatdeger[4];
                 $ifiyat-=$ifiyat*$indirimoran/100;

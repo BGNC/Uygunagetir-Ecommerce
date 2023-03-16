@@ -105,7 +105,7 @@ if(isset($_SESSION["sepet"])){
 
                             <?php
 
-                            $kategorisql    =   mysqli_query("SELECT * FROM kategori ORDER BY kategori_adi ASC");
+                            $kategorisql    =   mysqli_query("SELECT * FROM kategori ORDER BY kategori_adi ASC",$baglanti);
                             while($kategorigetir=mysqli_fetch_array($kategorisql))
                             { 
                                 $kategori_id=$kategorigetir["kategori_id"];
@@ -119,7 +119,7 @@ if(isset($_SESSION["sepet"])){
 
                                 <ul>
                                     <?php
-                                    $sorgu=mysqli_query("SELECT * FROM altkategori where kategori_id=$kategori_id ORDER BY altkategori_adi ASC");
+                                    $sorgu=mysqli_query("SELECT * FROM altkategori where kategori_id=$kategori_id ORDER BY altkategori_adi ASC",$baglanti);
                                     while($kayit=mysqli_fetch_array($sorgu)){
                                     ?>
                                     <li><a href="kategori-<?php echo seo($kayit["altkategori_adi"]).'-'.$kayit["altkategori_id"]?>.html"><?php echo $kayit["altkategori_adi"]; ?></a></li>
