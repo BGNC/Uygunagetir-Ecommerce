@@ -6,8 +6,8 @@ include("baglanti.php");
 if(isset($_SESSION["uye"]))
 {
 	$uyesql="SELECT * FROM uye WHERE kadi='".$_SESSION["uye"]."'";
-	$uyesorgu=@mysql_query($uyesql,$baglanti);
-	$uyegetir=@mysql_fetch_array($uyesorgu);
+	$uyesorgu=@mysqli_query($uyesql,$baglanti);
+	$uyegetir=@mysqli_fetch_array($uyesorgu);
 	$uyeid=$uyegetir[0];
 	
 
@@ -19,8 +19,8 @@ if(isset($_SESSION["uye"]))
 			$urun_adet=$urun["adet"];
 
 			$degersql="SELECT * FROM deger WHERE urun_id=$urun_id";
-            $degersorgu=@mysql_query($degersql,$baglanti);
-            $degeroku=@mysql_fetch_array($degersorgu);
+            $degersorgu=@mysqli_query($baglanti,$degersql);
+            $degeroku=@mysqli_fetch_array($degersorgu);
             $vfiyat=$degeroku["fiyat"];
 
             if($degeroku[6]<=$btarih && $degeroku[7]>=$btarih) $vfiyat-=$vfiyat*$degeroku[5]/100;
@@ -31,19 +31,16 @@ if(isset($_SESSION["uye"]))
 			$tarih=date("Y-m-d H-i-s");
 
             	$satis_sql="INSERT INTO satis values('NULL',1,$uyeid,$urun_id,$urun_adet,$vfiyat,$toplam_fiyat,$zamandamgasi,'$tarih','',0,'')";
-				$satis_yap=@mysql_query($satis_sql,$baglanti);
+				$satis_yap=@mysqli_query($baglanti,$satis_sql);
 				if($satis_yap)
 				{
 					
-					$urunguncelle=@mysql_query("UPDATE urun SET urun_stok=urun_stok-$urun_adet WHERE urun_id=$urun_id",$baglanti);
+					$urunguncelle=@mysqli_query($baglanti,"UPDATE urun SET urun_stok=urun_stok-$urun_adet WHERE urun_id=$urun_id");
 					if($urunguncelle){
 						unset($_SESSION["sepet"]);
 						header("location:anasayfa.html");
 
-					} 
-					
-				}
-
+					}
 		}		
 }
 else

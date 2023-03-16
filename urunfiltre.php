@@ -19,9 +19,9 @@ $y=strlen($maxfiyat);
 <span style="font-size:16px;">Markalar</span>
 <hr />
 <?php
-$sqlmarka=mysql_query("SELECT marka.marka_id,marka.marka_adi FROM marka,urun WHERE urun.kategori_id=$kategori_id AND urun.altkategori_id=$altkategori_id AND urun.gorunum=1 AND urun.marka_id=marka.marka_id GROUP BY marka.marka_adi ",$baglanti);
+$sqlmarka=mysqli_query($baglanti,"SELECT marka.marka_id,marka.marka_adi FROM marka,urun WHERE urun.kategori_id=$kategori_id AND urun.altkategori_id=$altkategori_id AND urun.gorunum=1 AND urun.marka_id=marka.marka_id GROUP BY marka.marka_adi ");
 $n=0;
-while($markakayit=mysql_fetch_array($sqlmarka))
+while($markakayit=mysqli_fetch_array($sqlmarka))
 {
 	echo "<label><input type='checkbox' name='marka_id[]' value='".$markakayit[0]."'>$markakayit[1]</label><br/>";
 }
@@ -58,14 +58,14 @@ while($markakayit=mysql_fetch_array($sqlmarka))
  $sql.=" AND urun.urun_id=deger.urun_id";
  
  
- @$filtresql=@mysql_query($sql,$baglanti);
- while($filtrekayitlar=mysql_fetch_array($filtresql))
+ @$filtresql=@mysqli_query($baglanti,$sql);
+ while($filtrekayitlar=mysqli_fetch_array($filtresql))
      	{
 			//deger tablosundaki başlama ve bitiştarihleri oku
 			$bugununtarihi=date("Y-m-d");
 			$sqlindirim="select * from deger where urun_id=$filtrekayitlar[0]";
-			$sorguindirim=mysql_query($sqlindirim,$baglanti);
-			$f=mysql_fetch_array($sorguindirim);
+			$sorguindirim=mysqli_query($baglanti,$sqlindirim);
+			$f=mysqli_fetch_array($sorguindirim);
 			$fiyat=$filtrekayitlar[3];
 			if($bugununtarihi>=$f[6] and $bugununtarihi<=$f[7]) $fiyat-=($fiyat*$f[5]/100);		
 			

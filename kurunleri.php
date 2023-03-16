@@ -7,8 +7,8 @@ $satici_id	=	@$_GET["satici_id"];
 if($satici_id!=1)
 {	
 
-	$urunsorgu	=	@mysql_query("SELECT urun.urun_id,urun.urun_adi,urun.urun_resmi,deger.fiyat FROM urun,deger WHERE urun.satici_id=$satici_id AND urun.urun_id=deger.urun_id",$baglanti);
-	while($urunler=@mysql_fetch_array($urunsorgu))
+	$urunsorgu	=	@mysqli_query($baglanti,"SELECT urun.urun_id,urun.urun_adi,urun.urun_resmi,deger.fiyat FROM urun,deger WHERE urun.satici_id=$satici_id AND urun.urun_id=deger.urun_id");
+	while($urunler=@mysqli_fetch_array($urunsorgu))
 	{
 		  echo "<div class='urun'>";
 		  echo "<img src='urunresimleri/".$urunler[2]."'>";

@@ -2,12 +2,12 @@
 <?php
 if(isset($_SESSION["uye"]))
 {
-	$uyesorgu	=	mysql_query("SELECT * FROM uye WHERE kadi='".$_SESSION["uye"]."'",$baglanti);
-	$uyegetir	=	mysql_fetch_array($uyesorgu);
+	$uyesorgu	=	mysqli_query($baglanti,"SELECT * FROM uye WHERE kadi='".$_SESSION["uye"]."'");
+	$uyegetir	=	mysqli_fetch_array($uyesorgu);
 	$uyeid		=	$uyegetir[0];
 	
-	$urunsorgu	=	mysql_query("SELECT * FROM urun WHERE satici_id=$uyeid and gorunum=1",$baglanti);
-	$urunvarmi	=	mysql_num_rows($urunsorgu);
+	$urunsorgu	=	mysqli_query($baglanti,"SELECT * FROM urun WHERE satici_id=$uyeid and gorunum=1");
+	$urunvarmi	=	mysqli_num_rows($urunsorgu);
 	
 	if($urunvarmi!=0){		
 ?>
@@ -24,10 +24,10 @@ if(isset($_SESSION["uye"]))
     
     <?php
 	
-	$urunsql	=	@mysql_query("SELECT urun.urun_id,urun.urun_adi,deger.fiyat,urun.urun_stok FROM urun,deger WHERE urun.satici_id=$uyeid AND urun.gorunum=1 AND urun.urun_id=deger.urun_id",$baglanti);
+	$urunsql	=	@mysqli_query($baglanti,"SELECT urun.urun_id,urun.urun_adi,deger.fiyat,urun.urun_stok FROM urun,deger WHERE urun.satici_id=$uyeid AND urun.gorunum=1 AND urun.urun_id=deger.urun_id");
 	
 	$i=0;
-	while($urunler=mysql_fetch_array($urunsql))
+	while($urunler=mysqli_fetch_array($urunsql))
 	{
 		$i++;
 		echo "<tr>";

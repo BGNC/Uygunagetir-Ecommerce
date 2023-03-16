@@ -4,7 +4,7 @@
 if(isset($_SESSION["uye"]))
 {
 	$urun_id	=	$_GET["urun_id"];
-	$urungetir	=	mysql_fetch_array(@mysql_query("SELECT urun.marka_id,urun.kategori_id,urun.altkategori_id,urun.urun_adi,deger.fiyat,urun.urun_ozellik,urun.urun_stok FROM urun,deger WHERE urun.urun_id=$urun_id AND urun.urun_id=deger.urun_id",$baglanti));
+	$urungetir	=	mysqli_fetch_array(@mysqli_query($baglanti,"SELECT urun.marka_id,urun.kategori_id,urun.altkategori_id,urun.urun_adi,deger.fiyat,urun.urun_ozellik,urun.urun_stok FROM urun,deger WHERE urun.urun_id=$urun_id AND urun.urun_id=deger.urun_id"));
 	$marka_id	=	$urungetir[0];
 	$kategori_id	=	$urungetir[1];
 	$altkategori_id	=	$urungetir[2];
@@ -23,8 +23,8 @@ if(isset($_SESSION["uye"]))
         <select name="marka_id" class="urunselect">
         <option value="0"></option>
         <?php
-		$markasql=@mysql_query("SELECT * FROM marka",$baglanti);
-		while($markakayit=mysql_fetch_array($markasql))
+		$markasql=@mysqli_query($baglanti,"SELECT * FROM marka");
+		while($markakayit=mysqli_fetch_array($markasql))
 		{
 		?>	
 		<option value="<?php echo $markakayit[0];?>" <?php if($markakayit[0]==$marka_id){?> selected="selected" <?php }?>><?php echo $markakayit[1]; ?></option>
@@ -40,8 +40,8 @@ if(isset($_SESSION["uye"]))
         <select name="kategori_id" class="urunselect" id="kategori">
         <option value="0"></option>
         <?php
-		$kategorisql=@mysql_query("SELECT * FROM kategori",$baglanti);
-		while($kategorikayit=mysql_fetch_array($kategorisql))
+		$kategorisql=@mysqli_query($baglanti,"SELECT * FROM kategori");
+		while($kategorikayit=mysqli_fetch_array($kategorisql))
 		{
 		?>
 		<option value="<?php echo $kategorikayit[0];?>" <?php if($kategorikayit[0]==$kategori_id){?> selected="selected"<?php } ?> ><?php echo $kategorikayit[1]; ?></option>
@@ -55,8 +55,8 @@ if(isset($_SESSION["uye"]))
         <td height="25" align="center" valign="top">:</td>
         <td height="25" valign="top"><select name="altkategori_id" class="urunselect" id="altkategori">
         <?php
-		$altkategori=@mysql_query("SELECT * FROM altkategori WHERE kategori_id=$kategori_id",$baglanti);
-		while($altkategorigetir=mysql_fetch_array($altkategori))
+		$altkategori=mysqli_query($baglanti,"SELECT * FROM altkategori WHERE kategori_id=$kategori_id");
+		while($altkategorigetir=mysqli_fetch_array($altkategori))
 		{
 		?>
         	<option value="<?php echo $altkategorigetir[0]; ?>" <?php if($altkategorigetir[0]==$altkategori_id){ ?> selected="selected" <?php } ?>><?php echo $altkategorigetir[2]; ?></option>

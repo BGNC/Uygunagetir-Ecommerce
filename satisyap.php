@@ -12,8 +12,8 @@ if(isset($_SESSION["uye"]))
         <select name="marka_id" class="satis-select">
         <option value="0"></option>
         <?php
-		$markasql=@mysql_query("SELECT * FROM marka",$baglanti);
-		while($markakayit=mysql_fetch_array($markasql))
+		$markasql=@mysqli_query($baglanti,"SELECT * FROM marka");
+		while($markakayit=mysqli_fetch_array($markasql))
 		{
 			echo "<option value=".$markakayit[0].">".$markakayit[1]."</option>";
 		}
@@ -27,8 +27,8 @@ if(isset($_SESSION["uye"]))
         <select name="kategori_id" class="satis-select" id="kategori">
         <option value="0"></option>
         <?php
-		$kategorisql=@mysql_query("SELECT * FROM kategori",$baglanti);
-		while($kategorikayit=mysql_fetch_array($kategorisql))
+		$kategorisql=@mysqli_query($baglanti,"SELECT * FROM kategori");
+		while($kategorikayit=mysqli_fetch_array($kategorisql))
 		{
 			echo "<option value=".$kategorikayit[0].">".$kategorikayit[1]."</option>";
 		}

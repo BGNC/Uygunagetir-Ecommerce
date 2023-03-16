@@ -15,12 +15,12 @@ if(isset($_SESSION["uye"]))
 	$ozellik=$_POST["ozellik"];
 	$resim=$_FILES["resim"]["name"];
 	
-	$urunguncelle	=	@mysql_query("UPDATE urun SET marka_id=$marka_id,kategori_id=$kategori_id,altkategori_id=$altkategori_id,urun_adi='$urunadi',urun_stok=$stok,urun_ozellik='$ozellik' WHERE urun_id=$urun_id",$baglanti);
+	$urunguncelle	=	@mysqli_query($baglanti,"UPDATE urun SET marka_id=$marka_id,kategori_id=$kategori_id,altkategori_id=$altkategori_id,urun_adi='$urunadi',urun_stok=$stok,urun_ozellik='$ozellik' WHERE urun_id=$urun_id");
 	
 	if($urunguncelle)
 	{
 		
-		$fiyatguncelle=mysql_query("UPDATE deger SET kategori_id=$kategori_id,altkategori_id=$altkategori_id,fiyat=$urunfiyati WHERE urun_id=$urun_id",$baglanti);
+		$fiyatguncelle=mysqli_query($baglanti,"UPDATE deger SET kategori_id=$kategori_id,altkategori_id=$altkategori_id,fiyat=$urunfiyati WHERE urun_id=$urun_id");
 		if($fiyatguncelle)
 		{
 			if($resim=="")
@@ -30,7 +30,7 @@ if(isset($_SESSION["uye"]))
 			else
 			{
 				
-				$resimsil	=	mysql_fetch_array(mysql_query("SELECT urun_resmi FROM urun WHERE urun_id=$urun_id",$baglanti));
+				$resimsil	=	mysqli_fetch_array(mysqli_query($baglanti,"SELECT urun_resmi FROM urun WHERE urun_id=$urun_id"));
 				$resim_adi	=	$resimsil[0];
 				$sil		=	unlink($yol.$resim_adi);
 				if($sil)
@@ -41,7 +41,7 @@ if(isset($_SESSION["uye"]))
 					$yukle=move_uploaded_file($dizin,$yol.$yeniad);
 					if($yukle)
 					{
-						$resmiguncelle=@mysql_query("UPDATE urun SET urun_resmi='$yeniad' WHERE urun_id=$urun_id",$baglanti);
+						$resmiguncelle=@mysqli_query($baglanti,"UPDATE urun SET urun_resmi='$yeniad' WHERE urun_id=$urun_id");
 						if($resmiguncelle) header("location:index.php?url=urunlerim");
 					}
 				}

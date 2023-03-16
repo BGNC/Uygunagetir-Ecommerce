@@ -2,8 +2,8 @@
 if(isset($_SESSION["uye"]))
 {
 	$uyesql="SELECT * FROM uye WHERE kadi='".$_SESSION["uye"]."'";
-	$uyesorgu=@mysql_query($uyesql,$baglanti);
-	$uyegetir=@mysql_fetch_array($uyesorgu);
+	$uyesorgu=@mysqli_query($baglanti,$uyesql);
+	$uyegetir=@mysqli_fetch_array($uyesorgu);
 	$uyeid=$uyegetir[0];
 	$ad=$uyegetir[3];
 	$soyad=$uyegetir[4];

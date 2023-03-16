@@ -1,10 +1,11 @@
 <?php 
 include("header.php");
+
 $id=$_GET["id"];
 
-$alt_kategori=mysql_fetch_array(mysql_query("SELECT * FROM altkategori WHERE altkategori_id=$id"));
+$alt_kategori=mysqli_fetch_array(mysqli_query($baglanti,"SELECT * FROM altkategori WHERE altkategori_id=$id"));
 $kategori_id=$alt_kategori["kategori_id"];
-$kategori=mysql_fetch_array(mysql_query("SELECT * FROM kategori WHERE kategori_id=$kategori_id"));
+$kategori=mysqli_fetch_array(mysqli_query($baglanti,"SELECT * FROM kategori WHERE kategori_id=$kategori_id"));
 
 
 
@@ -39,14 +40,14 @@ $kategori=mysql_fetch_array(mysql_query("SELECT * FROM kategori WHERE kategori_i
                     <?php 
 
                     $sql="SELECT urun.urun_id,urun.urun_adi,urun.urun_resmi,deger.fiyat FROM urun,deger WHERE urun.gorunum=1 AND urun.altkategori_id=$id AND urun.urun_id=deger.urun_id";
-                    @$filtresql=@mysql_query($sql,$baglanti);
-				    while($filtrekayitlar=mysql_fetch_array($filtresql))
+                    @$filtresql=@mysqli_query($baglanti,$sql);
+				    while($filtrekayitlar=mysqli_fetch_array($filtresql))
      				{
 						//deger tablosundaki başlama ve bitiştarihleri oku
 						$bugununtarihi=date("Y-m-d");
 						$sqlindirim="select * from deger where urun_id=$filtrekayitlar[0]";
-						$sorguindirim=mysql_query($sqlindirim,$baglanti);
-						$f=mysql_fetch_array($sorguindirim);
+						$sorguindirim=mysqli_query($sqlindirim,$baglanti);
+						$f=mysqli_fetch_array($sorguindirim);
 						$fiyat=$filtrekayitlar[3];
 						if($bugununtarihi>=$f[6] and $bugununtarihi<=$f[7]) $fiyat-=($fiyat*$f[5]/100);
 
@@ -74,8 +75,8 @@ $kategori=mysql_fetch_array(mysql_query("SELECT * FROM kategori WHERE kategori_i
  
                         <ul>
                         <?php 
-                        $kategori_sorgu=mysql_query("SELECT * FROM altkategori WHERE kategori_id=$kategori_id");
-                        while($rows=mysql_fetch_array($kategori_sorgu))
+                        $kategori_sorgu=mysqli_query($baglanti,"SELECT * FROM altkategori WHERE kategori_id=$kategori_id");
+                        while($rows=mysqli_fetch_array($kategori_sorgu))
                         { ?>
                             <li>
                                 <a href="kategori-<?php echo seo($rows["altkategori_adi"]).'-'.$rows["altkategori_id"]; ?>.html">
@@ -92,7 +93,7 @@ $kategori=mysql_fetch_array(mysql_query("SELECT * FROM kategori WHERE kategori_i
 
             
 
-           
+          
 
         </div>
     </div>

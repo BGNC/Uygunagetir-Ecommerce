@@ -11,7 +11,7 @@ if(isset($_SESSION["uye"]))
 	$adres=$_POST["adres"];
 	$bhesap=$_POST["bhesapno"];
 	
-	$guncelle=@mysql_query("UPDATE uye SET ad='$ad',soyad='$soyad',tel='$tel',email='$email',adres='$adres',bankahesapno='$bhesap' WHERE uyeid=$uye_id");
+	$guncelle=@mysqli_query($baglanti,"UPDATE uye SET ad='$ad',soyad='$soyad',tel='$tel',email='$email',adres='$adres',bankahesapno='$bhesap' WHERE uyeid=$uye_id");
 	if($guncelle) header("location:index.php?url=hesapayar");
 }
 else

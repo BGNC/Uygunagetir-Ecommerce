@@ -3,8 +3,8 @@
 if(isset($_SESSION["uye"]))
 {
 	$uyesql="SELECT * FROM uye WHERE kadi='".$_SESSION["uye"]."'";
-	$uyesorgu=@mysql_query($uyesql,$baglanti);
-	$uyegetir=@mysql_fetch_array($uyesorgu);
+	$uyesorgu=@mysqli_query($baglanti,$uyesql);
+	$uyegetir=@mysqli_fetch_array($uyesorgu);
 	$uyeid=$uyegetir[0];
 ?>
 <table align="center" id="sepet">
@@ -24,8 +24,8 @@ if(isset($_SESSION["uye"]))
     
     <?php
 	$satissql="SELECT satis.tarih,urun.urun_adi,satis.urun_fiyat,satis.urun_adet,satis.toplam_fiyat,satis.kargo_adi,satis.kargo_kodu,satis.kargo_durum FROM satis,urun WHERE satis.alan_id=$uyeid AND satis.urun_id=urun.urun_id";
-	$satissorgu=mysql_query($satissql,$baglanti);
-	while($satisgetir=mysql_fetch_array($satissorgu))
+	$satissorgu=mysqli_query($baglanti,$satissql);
+	while($satisgetir=mysqli_fetch_array($satissorgu))
 	{
 		$durum=$satisgetir[7];
 		$metin="";

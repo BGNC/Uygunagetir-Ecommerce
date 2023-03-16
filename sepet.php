@@ -21,7 +21,7 @@ include("baglanti.php");
 
             <?php
 
-            if(isset($_SESSION["sepet"]) && count($_SESSION["sepet"])>0 ){	
+            if(isset($_SESSION["sepet"]) && @count($_SESSION["sepet"])>0 ){	
 
             ?>
 
@@ -53,14 +53,14 @@ include("baglanti.php");
                    			
 
                    		$sepetsql         =   "SELECT urun_adi,urun_resmi FROM urun WHERE urun_id=$id";
-						$sepetsorgu       =   mysql_query($sepetsql,$baglanti);
-						$sepetgetir       =   mysql_fetch_array($sepetsorgu);
+						$sepetsorgu       =   mysqli_query($baglanti,$sepetsql);
+						$sepetgetir       =   mysqli_fetch_array($sepetsorgu);
 					
 						
 						
 						$degersql         =   "SELECT * FROM deger WHERE urun_id=$id";
-						$degersorgu       =   mysql_query($degersql,$baglanti);
-						$degergetir       =   mysql_fetch_array($degersorgu);
+						$degersorgu       =   mysqli_query($baglanti,$degersql);
+						$degergetir       =   mysqli_fetch_array($degersorgu);
 						$b_tarih          =   date("Y-m-d");
 						$bas_tarih        =   $degergetir[6];
 						$bit_tarih        =   $degergetir[7];

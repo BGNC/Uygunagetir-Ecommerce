@@ -8,7 +8,7 @@ if(isset($_SESSION["uye"]))
 	$kargoadi=$_POST["kargoadi"];
 	$kargokodu=$_POST["kargokodu"];
 	
-	 $guncelle	=	@mysql_query("UPDATE satis SET kargo_adi='$kargoadi',kargo_durum=1,kargo_kodu='$kargokodu' WHERE satis_id=$satis_id",$baglanti);
+	 $guncelle	=	@mysqli_query($baglanti,"UPDATE satis SET kargo_adi='$kargoadi',kargo_durum=1,kargo_kodu='$kargokodu' WHERE satis_id=$satis_id");
 	
 		if($guncelle)
 		{ 

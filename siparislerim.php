@@ -2,12 +2,12 @@
 <?php
 if(isset($_SESSION["uye"]))
 {
-	$uyesorgu	=	@mysql_query("SELECT * FROM uye WHERE kadi='".$_SESSION["uye"]."'",$baglanti);
-	$uyegetir	=	@mysql_fetch_array($uyesorgu);
+	$uyesorgu	=	@mysqli_query($baglanti,"SELECT * FROM uye WHERE kadi='".$_SESSION["uye"]."'");
+	$uyegetir	=	@mysqli_fetch_array($uyesorgu);
 	$uyeid		=	$uyegetir[0];
 	
-	$siparisorgu	=	@mysql_query("SELECT * FROM satis WHERE satici_id=$uyeid AND kargo_durum!=1",$baglanti);
-	$siparisvarmi	=	@mysql_num_rows($siparisorgu);
+	$siparisorgu	=	@mysqli_query($baglanti,"SELECT * FROM satis WHERE satici_id=$uyeid AND kargo_durum!=1");
+	$siparisvarmi	=	@mysqli_num_rows($siparisorgu);
 	
 	if($siparisvarmi!=0)
 	{	
@@ -27,9 +27,9 @@ if(isset($_SESSION["uye"]))
     </thead>
 	
     <?php
-	$siparissql	=	mysql_query("SELECT satis.satis_id,satis.tarih,uye.ad,uye.soyad,urun.urun_adi,satis.urun_fiyat,satis.urun_adet,satis.toplam_fiyat,satis.kargo_durum FROM satis,urun,uye WHERE satis.satici_id=$uyeid AND satis.kargo_durum!=1 AND satis.urun_id=urun.urun_id AND satis.alan_id=uye.uyeid",$baglanti);
+	$siparissql	=	mysqli_query($baglanti,"SELECT satis.satis_id,satis.tarih,uye.ad,uye.soyad,urun.urun_adi,satis.urun_fiyat,satis.urun_adet,satis.toplam_fiyat,satis.kargo_durum FROM satis,urun,uye WHERE satis.satici_id=$uyeid AND satis.kargo_durum!=1 AND satis.urun_id=urun.urun_id AND satis.alan_id=uye.uyeid");
 	
-	while($siparisler=mysql_fetch_array($siparissql))
+	while($siparisler=mysqli_fetch_array($siparissql))
 	{
 		$durum=$siparisler[8];
 		echo "<tr>";

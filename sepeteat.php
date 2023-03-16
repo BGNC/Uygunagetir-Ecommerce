@@ -8,10 +8,10 @@ if(isset($_SESSION["uye"]))
 	$adet		=	$_GET["a"];
 	$kadi		=	$_SESSION["uye"];
 	
-	$uyegetir	=	mysql_fetch_array(mysql_query("SELECT * FROM uye WHERE kadi='$kadi'",$baglanti));
+	$uyegetir	=	mysqli_fetch_array(mysqli_query($baglanti,"SELECT * FROM uye WHERE kadi='$kadi'"));
 	$uye_id		=	$uyegetir[0];
 	
-	$urungetir	=	@mysql_fetch_array(@mysql_query("SELECT urun.satici_id,deger.fiyat,deger.indirim_orani,deger.bas_tarih,deger.bit_tarih FROM urun,deger WHERE urun.urun_id=$urun_id AND urun.urun_id=deger.urun_id",$baglanti));
+	$urungetir	=	@mysqli_fetch_array(@mysqli_query($baglanti,"SELECT urun.satici_id,deger.fiyat,deger.indirim_orani,deger.bas_tarih,deger.bit_tarih FROM urun,deger WHERE urun.urun_id=$urun_id AND urun.urun_id=deger.urun_id"));
 	$satici_id	=	$urungetir[0];
 	$fiyat		=	$urungetir[1];
 	$bas_tarih	=	$urungetir[4];
@@ -22,7 +22,7 @@ if(isset($_SESSION["uye"]))
 	
 	if($b_tarih<=$bas_tarih && $b_tarih>=$bit_tarih) $fiyat-=$fiyat*$i_orani/100;
 	
-	$sepeteat	=	mysql_query("INSERT INTO sepet values('NULL',$satici_id,$uye_id,$urun_id,$adet,$fiyat)",$baglanti);
+	$sepeteat	=	mysqli_query($baglanti,"INSERT INTO sepet values('NULL',$satici_id,$uye_id,$urun_id,$adet,$fiyat)");
 	
 }
 else{

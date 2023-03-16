@@ -4,7 +4,7 @@ if(isset($_SESSION["uye"]))
 {
 	include("baglanti.php");
 	$id=$_GET["id"];
-	$guncelle=@mysql_query("UPDATE urun SET gorunum=0 WHERE urun_id=$id",$baglanti);
+	$guncelle=@mysqli_query($baglanti,"UPDATE urun SET gorunum=0 WHERE urun_id=$id");
 	if($guncelle)header("location:index.php?url=urunlerim");
 }
 else

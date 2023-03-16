@@ -43,7 +43,7 @@
                 $btarih=date("Y-m-d");
                 $vfiyat=$vitrinkayitlar[3];
                 $degersql="SELECT * FROM deger WHERE urun_id=$vitrinkayitlar[0]";
-                $degersorgu=@mysqli_query($degersql,$baglanti);
+                $degersorgu=@mysqli_query($baglanti,$degersql);
                 $degeroku=@mysqli_fetch_array($degersorgu);
             
             if($degeroku[6]<=$btarih && $degeroku[7]>=$btarih) $vfiyat-=$vfiyat*$degeroku[5]/100;

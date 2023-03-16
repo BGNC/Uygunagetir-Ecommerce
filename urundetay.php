@@ -4,11 +4,11 @@ include("header.php");
 
 $id=$_GET["id"];
 
-$urunsql	=	@mysql_query("SELECT urun.urun_id,uye.kadi,urun.urun_adi,urun.urun_resmi,urun.urun_ozellik,urun.urun_stok,urun.satici_id,urun.altkategori_id,urun.kategori_id FROM urun,uye WHERE urun.urun_id=$id AND urun.satici_id=uyeid",$baglanti);
-$urungetir	=	mysql_fetch_array($urunsql);
+$urunsql	=	@mysqli_query($baglanti,"SELECT urun.urun_id,uye.kadi,urun.urun_adi,urun.urun_resmi,urun.urun_ozellik,urun.urun_stok,urun.satici_id,urun.altkategori_id,urun.kategori_id FROM urun,uye WHERE urun.urun_id=$id AND urun.satici_id=uyeid");
+$urungetir	=	mysqli_fetch_array($urunsql);
 
-$fiyatsql	=	@mysql_query("SELECT * FROM deger WHERE urun_id=$urungetir[0]",$baglanti);
-$fiyatkayit	=	@mysql_fetch_array($fiyatsql);
+$fiyatsql	=	@mysqli_query($baglanti,"SELECT * FROM deger WHERE urun_id=$urungetir[0]");
+$fiyatkayit	=	@mysqli_fetch_array($fiyatsql);
 $btarih		=	date("Y-m-d");
 $bas_tarih	=	$fiyatkayit[6];
 $bit_tarih	=	$fiyatkayit[7];

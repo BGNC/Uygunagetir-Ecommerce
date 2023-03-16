@@ -4,8 +4,8 @@ if(isset($_SESSION["uye"]))
 {
 	include("baglanti.php");
 
-	$uyesorgu	=	@mysql_query("SELECT * FROM uye WHERE kadi='".$_SESSION["uye"]."'",$baglanti);
-	$uyekayit	=	@mysql_fetch_array($uyesorgu);
+	$uyesorgu	=	@mysqli_query($baglanti,"SELECT * FROM uye WHERE kadi='".$_SESSION["uye"]."'");
+	$uyekayit	=	@mysqli_fetch_array($uyesorgu);
 	$satici_id	=	$uyekayit[0];
 
 	$marka_id	=	$_POST["marka_id"];
@@ -27,13 +27,13 @@ if(isset($_SESSION["uye"]))
 	$yukle	=	move_uploaded_file($dizin,$yol.$yeni_ad);
 	if($yukle)
 	{
-		$urunkaydet	=	@mysql_query("INSERT INTO urun values(NULL,$satici_id,$marka_id,$kategori_id,$altkategori_id,'$urunadi','$yeni_ad','$ozellik',$stok,0,1)",$baglanti);
+		$urunkaydet	=	@mysqli_query($baglanti,"INSERT INTO urun values(NULL,$satici_id,$marka_id,$kategori_id,$altkategori_id,'$urunadi','$yeni_ad','$ozellik',$stok,0,1)");
 
 		if($urunkaydet)
 		{
-			$urun_id	=	mysql_insert_id();
+			$urun_id	=	mysqli_insert_id();
 			$sql="INSERT INTO deger(urun_id,kategori_id,altkategori_id,fiyat) values ($urun_id,$kategori_id,$altkategori_id,$urunfiyat)";
-			$degerkaydet	=	@mysql_query($sql,$baglanti);
+			$degerkaydet	=	@mysqli_query($baglanti,$sql);
 			if($degerkaydet)
 			{
 				header("location:index.php?url=urunlerim");
