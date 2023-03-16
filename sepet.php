@@ -1,5 +1,4 @@
 
-
 <?php
 include("header.php");
 ?>
@@ -156,9 +155,9 @@ include("header.php");
                     </div>
 
                     <!-- BURADA KALDIN -->
-                    <a href="urundetay-<?php echo seo($urunler["urun_adi"]).'-'.$urunler["urun_id"];?>.html"><h5 class="product-name"><?php echo $urunler["urun_adi"]; ?></h5></a>
+                    <a href="urundetay-<?php echo @seo($urunler["urun_adi"]).'-'.$urunler["urun_id"];?>.html"><h5 class="product-name"><?php echo $urunler["urun_adi"]; ?></h5></a>
                     <div class="product-price"><?php echo number_format($urunler["fiyat"],2,",","."); ?> <i class="fa fa-try"></i></div>
-                    <a href="urundetay-<?php echo seo($urunler["urun_adi"]).'-'.$urunler["urun_id"]; ?>.html" class="product-choose button-regular hover-color-semiblack hover-bg-white"><i class="icon3-bag"></i>Sepete Ekle</a>
+                    <a href="urundetay-<?php echo @seo($urunler["urun_adi"]).'-'.$urunler["urun_id"]; ?>.html" class="product-choose button-regular hover-color-semiblack hover-bg-white"><i class="icon3-bag"></i>Sepete Ekle</a>
                 </li>
 
                 <?php } ?>
