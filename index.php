@@ -6,7 +6,7 @@
             <ul>
 
             	<?php
-            	$sorgu=mysqli_query("SELECT * FROM slide ORDER BY id ASC",$baglanti);
+            	$sorgu=mysqli_query($baglanti,"SELECT * FROM slide ORDER BY id ASC");
             	while ($rows=mysqli_fetch_array($sorgu)) {
             	
             	?>	
@@ -37,7 +37,7 @@
             <ul class="products clearfix">
 
             <?php
-            $vitrinsql  =   mysqli_query("SELECT urun.urun_id,urun.urun_adi,urun.urun_resmi,deger.fiyat FROM urun,deger WHERE urun.vitrin=1 AND urun.urun_id=deger.urun_id ORDER BY urun.sira ASC",$baglanti);
+            $vitrinsql  =   mysqli_query($baglanti,"SELECT urun.urun_id,urun.urun_adi,urun.urun_resmi,deger.fiyat FROM urun,deger WHERE urun.vitrin=1 AND urun.urun_id=deger.urun_id ORDER BY urun.sira ASC");
             while($vitrinkayitlar=@mysqli_fetch_array($vitrinsql))
             {
                 $btarih=date("Y-m-d");

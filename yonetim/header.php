@@ -1,6 +1,7 @@
 <?php 
 
-include("../baglanti.php"); session_start();
+include("../baglanti.php");
+session_start();
 
 ?>
 

@@ -1,25 +1,16 @@
 <?php
-
-
-
-include("header.php"); 
-
-
-
+include("header.php");
+require_once("../baglanti.php");
 if(isset($_SESSION["yonetici"])){
 
 
+$siparis=mysqli_fetch_array(mysqli_query($baglanti,"SELECT COUNT(satis_id) FROM satis where kargo_durum!=1 AND satici_id=1 "));
 
-$siparis=mysql_fetch_array(mysql_query("SELECT COUNT(satis_id) FROM satis where kargo_durum!=1 AND satici_id=1 "));
+$urun=mysqli_fetch_array(mysqli_query($baglanti,"SELECT COUNT(urun_id) FROM urun where satici_id=1 "));
 
-$urun=mysql_fetch_array(mysql_query("SELECT COUNT(urun_id) FROM urun where satici_id=1 "));
+$uye=mysqli_fetch_array(mysqli_query($baglanti,"SELECT COUNT(uyeid) FROM uye where rutbe!=1"));
 
-$uye=mysql_fetch_array(mysql_query("SELECT COUNT(uyeid) FROM uye where rutbe!=1"));
-
-$satis=mysql_fetch_array(mysql_query("SELECT SUM(toplam_fiyat) FROM satis where kargo_durum=1 AND satici_id=1 "));
-
-
-
+$satis=mysqli_fetch_array(mysqli_query($baglanti,"SELECT SUM(toplam_fiyat) FROM satis where kargo_durum=1 AND satici_id=1 "));
 
 
 ?>

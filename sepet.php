@@ -1,4 +1,6 @@
-<?php include("header.php"); ?>
+<?php include("header.php");
+include("baglanti.php");
+?>
 
 <div class="top-header">
         <div class="content-inner clearfix">
@@ -138,8 +140,8 @@
 
             	<?php 
 
-            	$urun=mysql_query("SELECT * FROM urun,deger WHERE urun.urun_id=deger.urun_id ORDER BY urun.urun_id DESC LIMIT 4");
-            	while($urunler=mysql_fetch_array($urun)){
+            	$urun=mysqli_query($baglanti,"SELECT * FROM urun,deger WHERE urun.urun_id=deger.urun_id ORDER BY urun.urun_id DESC LIMIT 4");
+            	while($urunler=mysqli_fetch_array($urun)){
 
             	?>
 

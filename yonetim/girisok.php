@@ -12,8 +12,8 @@
 	else
 	{
 		$sql="SELECT * FROM uye WHERE kadi='$kadi' AND sifre='$sifre' AND rutbe=1";
-		$sorgu=mysql_query($sql,$baglanti);
-		$varmi=mysql_num_rows($sorgu);
+		$sorgu=mysqli_query($baglanti,$sql);
+		$varmi=mysqli_num_rows($sorgu);
 		echo $varmi;
 		if($varmi!=0)
 

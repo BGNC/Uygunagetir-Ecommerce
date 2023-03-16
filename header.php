@@ -84,7 +84,7 @@ if(isset($_SESSION["sepet"])){
                     <a href="sepet.html" class="shopping-bag active">
                         <i class="icon2-cart3"></i> 
                         <?php
-                        if(count(@$_SESSION["sepet"])>0){
+                        if(@count($_SESSION["sepet"])>0){
 
                         ?>
 
@@ -105,7 +105,7 @@ if(isset($_SESSION["sepet"])){
 
                             <?php
 
-                            $kategorisql    =   mysqli_query("SELECT * FROM kategori ORDER BY kategori_adi ASC",$baglanti);
+                            $kategorisql    =   mysqli_query($baglanti, "SELECT * FROM kategori ORDER BY kategori_adi ASC");
                             while($kategorigetir=mysqli_fetch_array($kategorisql))
                             { 
                                 $kategori_id=$kategorigetir["kategori_id"];
