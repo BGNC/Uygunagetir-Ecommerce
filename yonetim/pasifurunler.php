@@ -13,8 +13,8 @@ echo '<table id="tablo" align="center">
     <th width="70"></th>
 </thead>';
 $sira=0;
-$urunsql=@mysql_query("SELECT urun.urun_id,uye.kadi,urun.urun_adi,urun.urun_stok FROM urun,uye WHERE gorunum=0 AND urun.satici_id=uye.uyeid",$baglanti);
-while($urunkayit=mysql_fetch_array($urunsql))
+$urunsql=@mysqli_query($baglanti,"SELECT urun.urun_id,uye.kadi,urun.urun_adi,urun.urun_stok FROM urun,uye WHERE gorunum=0 AND urun.satici_id=uye.uyeid");
+while($urunkayit=mysqli_fetch_array($urunsql))
 {
 	$sira++;
 	echo "<tr>";

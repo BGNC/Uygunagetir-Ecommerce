@@ -74,9 +74,9 @@ if(isset($_SESSION["yonetici"])){
 
                       $sira=0;
 
-                      $sorgu  = @mysql_query("SELECT * FROM kategori ORDER BY kategori_adi ASC",$baglanti);
+                      $sorgu  = @mysqli_query($baglanti,"SELECT * FROM kategori ORDER BY kategori_adi ASC");
 
-                      while($kategoriler=mysql_fetch_array($sorgu))
+                      while($kategoriler=mysqli_fetch_array($sorgu))
 
                       {
 

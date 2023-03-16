@@ -38,9 +38,9 @@ if(isset($_SESSION["yonetici"])){
 
                       <?php
 
-                        $kategorisql=@mysql_query("SELECT * FROM kategori",$baglanti);
+                        $kategorisql=@mysqli_query($baglanti,"SELECT * FROM kategori");
 
-                        while($kategorikayit=mysql_fetch_array($kategorisql))
+                        while($kategorikayit=mysqli_fetch_array($kategorisql))
 
                         {
 
@@ -100,9 +100,9 @@ if(isset($_SESSION["yonetici"])){
 
                       $sira=0;
 
-                      $sorgu  = @mysql_query("SELECT * FROM kategori,altkategori WHERE altkategori.kategori_id=kategori.kategori_id ORDER BY altkategori.altkategori_adi ASC");
+                      $sorgu  = @mysqli_query($baglanti,"SELECT * FROM kategori,altkategori WHERE altkategori.kategori_id=kategori.kategori_id ORDER BY altkategori.altkategori_adi ASC");
 
-                      while($kategoriler=mysql_fetch_array($sorgu))
+                      while($kategoriler=mysqli_fetch_array($sorgu))
 
                       {
 

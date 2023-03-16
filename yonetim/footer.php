@@ -70,11 +70,11 @@
 
               <div class="menu-info">
 
-                <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+                <h4 class="control-sidebar-subheading">Profile</h4>
 
 
 
-                <p>New phone +1(800)555-1234</p>
+                <p>New phone </p>
 
               </div>
 
@@ -92,11 +92,11 @@
 
               <div class="menu-info">
 
-                <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
+                <h4 class="control-sidebar-subheading">List</h4>
 
 
 
-                <p>nora@example.com</p>
+                <p></p>
 
               </div>
 
@@ -114,11 +114,11 @@
 
               <div class="menu-info">
 
-                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+                <h4 class="control-sidebar-subheading"></h4>
 
 
 
-                <p>Execution time 5 seconds</p>
+                <p></p>
 
               </div>
 
@@ -132,7 +132,7 @@
 
 
 
-        <h3 class="control-sidebar-heading">Tasks Progress</h3>
+        <h3 class="control-sidebar-heading"></h3>
 
         <ul class="control-sidebar-menu">
 

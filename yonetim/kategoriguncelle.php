@@ -10,7 +10,7 @@ $id=$_GET["id"];
 
 
 
-$kategori=mysql_fetch_array(mysql_query("SELECT * FROM kategori WHERE kategori_id=$id"));
+$kategori=mysqli_fetch_array(mysqli_query($baglanti,"SELECT * FROM kategori WHERE kategori_id=$id"));
 
 
 
@@ -82,9 +82,9 @@ $kategori=mysql_fetch_array(mysql_query("SELECT * FROM kategori WHERE kategori_i
 
                       $sira=0;
 
-                      $sorgu  = @mysql_query("SELECT * FROM kategori ORDER BY kategori_adi ASC",$baglanti);
+                      $sorgu  = @mysqli_query($baglanti,"SELECT * FROM kategori ORDER BY kategori_adi ASC");
 
-                      while($kategoriler=mysql_fetch_array($sorgu))
+                      while($kategoriler=mysqli_fetch_array($sorgu))
 
                       {
 

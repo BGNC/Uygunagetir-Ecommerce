@@ -8,7 +8,7 @@ $rows = $sira["sira"];
 
 foreach ($rows as $key => $value) {
 	
-	$duzenle = mysql_query("UPDATE urun SET sira=$key WHERE urun_id=$value");
+	$duzenle = mysqli_query($baglanti,"UPDATE urun SET sira=$key WHERE urun_id=$value");
 }
 
 ?>

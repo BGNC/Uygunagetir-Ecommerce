@@ -17,8 +17,8 @@ if(isset($_SESSION["yonetici"]))
     <tbody>
     <?php
 	$sql="SELECT satis.tarih,uye.ad,uye.soyad,urun.urun_adi,satis.urun_fiyat,satis.urun_adet,satis.toplam_fiyat,urun.urun_id FROM satis,uye,urun WHERE satis.kargo_durum=1 AND satis.alan_id=uye.uyeid AND satis.urun_id=urun.urun_id ORDER BY satis.satis_id ASC";
-	$sqlsorgu=@mysql_query($sql,$baglanti);
-	while($satislar=@mysql_fetch_array($sqlsorgu))
+	$sqlsorgu=@mysqli_query($baglanti,$sql);
+	while($satislar=@mysqli_fetch_array($sqlsorgu))
 	{
 		
 		$urun_id=$satislar[7];
@@ -26,8 +26,8 @@ if(isset($_SESSION["yonetici"]))
 		
 		
 		$sqlsatis="SELECT uye.kadi FROM uye,urun WHERE urun.urun_id=$urun_id AND urun.satici_id=uye.uyeid";
-		$satissorgu=mysql_query($sqlsatis,$baglanti);
-		$s=mysql_fetch_array($satissorgu);
+		$satissorgu=mysqli_query($baglanti,$sqlsatis);
+		$s=mysqli_fetch_array($satissorgu);
 		$satici_adi=$s[0];
 		
 		echo "<tr>";

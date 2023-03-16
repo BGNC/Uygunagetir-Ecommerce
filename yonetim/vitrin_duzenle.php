@@ -74,9 +74,9 @@ if(isset($_SESSION["yonetici"])){
 
                
 
-                  $urunsql=@mysql_query("SELECT urun.urun_id,uye.kadi,urun.urun_adi,urun.urun_stok,urun.vitrin,urun.urun_resmi FROM urun,uye WHERE urun.vitrin=1 AND urun.gorunum=1 AND urun.satici_id=uye.uyeid ORDER BY urun.sira ASC");
+                  $urunsql=@mysqli_query($baglanti,"SELECT urun.urun_id,uye.kadi,urun.urun_adi,urun.urun_stok,urun.vitrin,urun.urun_resmi FROM urun,uye WHERE urun.vitrin=1 AND urun.gorunum=1 AND urun.satici_id=uye.uyeid ORDER BY urun.sira ASC");
 
-                  while($urunkayit=mysql_fetch_array($urunsql))
+                  while($urunkayit=mysqli_fetch_array($urunsql))
 
                   {
 

@@ -10,7 +10,7 @@ if(isset($_SESSION["yonetici"]))
 
 	$yol="../urunresimleri/";
 
-	$saticigetir=@mysql_fetch_array(@mysql_query("SELECT * FROM uye WHERE kadi='".$_SESSION["yonetici"]."'",$baglanti));
+	$saticigetir=@mysqli_fetch_array(@mysqli_query($baglanti,"SELECT * FROM uye WHERE kadi='".$_SESSION["yonetici"]."'"));
 
 	$satici_id=$saticigetir[0];
 
@@ -46,16 +46,16 @@ if(isset($_SESSION["yonetici"]))
 
 		//$kaydet=@mysql_query("INSERT INTO urun values(NULL,$satici_id,$marka_id,$kategori_id,$altkategori_id,'$urunadi','$yeniad','$ozellik',$stok,0,1)",$baglanti);
 
-		 $kaydet=@mysql_query("INSERT INTO urun
-		 	values(NULL,'$satici_id','$marka_id','$kategori_id','$altkategori_id','$urunadi','$yeniad','$ozellik','$stok',0,1,0)",$baglanti);
+		 $kaydet=@mysqli_query($baglanti,"INSERT INTO urun
+		 	values(NULL,'$satici_id','$marka_id','$kategori_id','$altkategori_id','$urunadi','$yeniad','$ozellik','$stok',0,1,0)");
 
 		if($kaydet)
 
 		{
 			
-			$son_id=mysql_insert_id();
+			$son_id=mysqli_insert_id();
 
-			$degerkaydet=mysql_query("INSERT INTO deger(urun_id,kategori_id,altkategori_id,fiyat)values($son_id,$kategori_id,$altkategori_id,$urunfiyati)",$baglanti);
+			$degerkaydet=mysqli_query($baglanti,"INSERT INTO deger(urun_id,kategori_id,altkategori_id,fiyat)values($son_id,$kategori_id,$altkategori_id,$urunfiyati)");
 
 			header("location:urun-ekle.html");
 			

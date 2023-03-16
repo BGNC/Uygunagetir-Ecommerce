@@ -8,7 +8,7 @@
 <tbody>
 <?php
 $sira=0;
-$sorgu	=	@mysql_query("SELECT * FROM kategori",$baglanti);
+$sorgu	=	@mysqli_query($baglanti,"SELECT * FROM kategori");
 while($kategoriler=mysql_fetch_array($sorgu))
 {
 	$sira++;

@@ -1,13 +1,25 @@
-<?php
-
-	include("../baglanti.php");
-	$kid=$_GET["kategori_id"];
-	$metin="<option value='0'></option>";
-	$sorgu=mysql_query("SELECT * from altkategori WHERE kategori_id=$kid ORDER BY altkategori_adi ASC",$baglanti);
-	while($kayit=mysql_fetch_array($sorgu))
-	{
-		$metin.="<option value=".$kayit[0].">".$kayit[2]."</option>";
-	}
-	echo $metin;
-
+<?php
+
+
+
+	include("../baglanti.php");
+
+	$kid=$_GET["kategori_id"];
+
+	$metin="<option value='0'></option>";
+
+	$sorgu=mysqli_query($baglanti,"SELECT * from altkategori WHERE kategori_id=$kid ORDER BY altkategori_adi ASC");
+
+	while($kayit=mysqli_fetch_array($sorgu))
+
+	{
+
+		$metin.="<option value=".$kayit[0].">".$kayit[2]."</option>";
+
+	}
+
+	echo $metin;
+
+
+
 ?>

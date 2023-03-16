@@ -6,7 +6,7 @@ if(isset($_SESSION["yonetici"])){
 
 // HATA VAR.
 
-$sql=mysql_fetch_array(mysql_query("SELECT * FROM satis Where satici_id=1 ",$baglanti));
+$sql=mysqli_fetch_array(mysqli_query($baglanti,"SELECT * FROM satis Where satici_id=1 "));
 
 $satis_id=$sql[0];
 ?>

@@ -9,8 +9,7 @@ if(isset($_SESSION["yonetici"])){
 $id=$_GET["id"];
 
 
-
-$marka=mysql_fetch_array(mysql_query("SELECT * FROM marka WHERE marka_id=$id"));
+$marka=mysqli_fetch_array(mysqli_query($baglanti,"SELECT * FROM marka WHERE marka_id=$id"));
 
 
 
@@ -82,11 +81,11 @@ $marka=mysql_fetch_array(mysql_query("SELECT * FROM marka WHERE marka_id=$id"));
 
                      <?php
 
-                      $sorgu=@mysql_query("SELECT * FROM marka ORDER BY marka_adi",$baglanti);
+                      $sorgu=@mysqli_query($baglanti,"SELECT * FROM marka ORDER BY marka_adi");
 
                       $sira=0;
 
-                      while($markalar=mysql_fetch_array($sorgu))
+                      while($markalar=mysqli_fetch_array($sorgu))
 
                       {
 

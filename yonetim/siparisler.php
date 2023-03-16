@@ -76,9 +76,9 @@ if(isset($_SESSION["yonetici"])){
 
                   //$sql2="SELECT satis.tarih,uye.ad,uye.soyad,urun.urun_adi,satis.urun_fiyat,satis.urun_adet,satis.toplam_fiyat,satis.satis_id,satis.kargo_durum FROM satis,uye,urun WHERE satis.kargo_durum!=1 AND satis.satici_id=1 AND satis.alan_id=uye.uye_id AND satis.urun_id=urun.urun_id ORER BY satis.satid_id DESC";
 
-                  $sqlsorgu=@mysql_query($sql,$baglanti);
+                  $sqlsorgu=@mysqli_query($baglanti,$sql);
 
-                  while($satislar=@mysql_fetch_array($sqlsorgu))
+                  while($satislar=@mysqli_fetch_array($sqlsorgu))
 
                   {
 

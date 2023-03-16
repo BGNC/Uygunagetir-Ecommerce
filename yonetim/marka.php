@@ -70,11 +70,11 @@ if(isset($_SESSION["yonetici"])){
 
                      <?php
 
-                      $sorgu=@mysql_query("SELECT * FROM marka ORDER BY marka_adi",$baglanti);
+                      $sorgu=@mysqli_query($baglanti,"SELECT * FROM marka ORDER BY marka_adi");
 
                       $sira=0;
 
-                      while($markalar=mysql_fetch_array($sorgu))
+                      while($markalar=mysqli_fetch_array($sorgu))
 
                       {
 

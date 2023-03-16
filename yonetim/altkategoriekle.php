@@ -2,7 +2,7 @@
 if(isset($_SESSION["yonetici"]))
 {
 	
-	$getir=mysql_fetch_array(@mysql_query("SELECT * FROM altkategori"))				
+	$getir=mysqli_fetch_array(@mysqli_query($baglanti,"SELECT * FROM altkategori"))				
 ?>
 <form name="altkategori" action="altkategoriekleok.php?kategori_id=<?php echo $kategori_id; ?>" method="post">
 <table align="center">
